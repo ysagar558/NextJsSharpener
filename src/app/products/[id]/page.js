@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 export default async function ProductDetails({params}){
     const {id}= await params;
     
@@ -18,10 +20,11 @@ export default async function ProductDetails({params}){
     <div className="product-details">
       <h1>{product.title}</h1>
 
-      <img
-        src={product.thumbnail}
-        alt={product.title}
-        width="250"
+      <Image 
+        src="/images/Laptop.png"
+        alt="Laptop Image"
+        height={250}
+        width={250}
       />
 
       <p><strong>Product ID:</strong> {product.id}</p>
