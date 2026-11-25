@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
@@ -5,8 +7,10 @@ export default function RootLayout({ children }) {
         {/* Header */}
         <header>
           <h1>Products Store</h1>
-          <nav>
-            <p>Home | Products | About</p>
+           <nav>
+            <Link href="/">Home</Link>
+            {" | "}
+            <Link href="/products">Products</Link>
           </nav>
         </header>
 
