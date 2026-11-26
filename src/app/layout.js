@@ -1,5 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
+import "./globals.css";
 
 export default function RootLayout({ children }) {
   return (
@@ -20,6 +21,10 @@ export default function RootLayout({ children }) {
             <Link href="/">Home</Link>
             {" | "}
             <Link href="/products">Products</Link>
+            {" | "}
+            <Link href="/login">Login</Link>
+            {" | "}
+            <Link href="/dashboard">Dashboard</Link>
           </nav>
         </header>
 
