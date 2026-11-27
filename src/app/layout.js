@@ -1,8 +1,27 @@
+"use client";
 import Link from "next/link";
 import Image from "next/image";
 import "./globals.css";
+import LogoutButton from "./dashboard/LogoutButton";
+import { useState,useEffect } from "react";
+import { useRouter } from "next/navigation";
 
 export default function RootLayout({ children }) {
+  const router=useRouter();
+
+ const [isLoggedin,setIsLoggedin]=useState(false);
+ const changeHandler=()=>{
+  setIsLoggedin(false);
+   localStorage.removeItem("token");
+
+  router.push("/login");
+ }
+ useEffect(()=>{
+  const token=localStorage.getItem("token");
+
+    setIsLoggedin(!!token);
+  },[]);
+
   return (
     <html lang="en">
       <body>
@@ -25,6 +44,8 @@ export default function RootLayout({ children }) {
             <Link href="/login">Login</Link>
             {" | "}
             <Link href="/dashboard">Dashboard</Link>
+            {" | "}
+            {isLoggedin && <button onClick={changeHandler} style={{backgroundColor:"red",borderRadius:"10px", padding:"10px"}}>Logout</button>}
           </nav>
         </header>
 

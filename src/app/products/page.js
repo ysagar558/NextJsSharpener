@@ -1,4 +1,5 @@
 import Link from "next/link";
+import AuthGuard from "../components/AuthGuard";
 
 
 export default async function ProductsPage() {
@@ -16,7 +17,7 @@ export default async function ProductsPage() {
   const data = await response.json();
 
   return (
-    <div>
+    <AuthGuard>
       <h1>All Products</h1>
 
       <div className="products-container">
@@ -38,6 +39,7 @@ export default async function ProductsPage() {
           </div>
         ))}
       </div>
-    </div>
+    
+    </AuthGuard>
   );
 }

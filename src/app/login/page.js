@@ -34,6 +34,9 @@ export default function LoginPage() {
         return;
       }
 
+      localStorage.setItem("token", "loggedin");
+
+
       router.push("/dashboard");
       router.refresh();
 

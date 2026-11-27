@@ -1,3 +1,4 @@
+import AuthGuard from "@/app/components/AuthGuard";
 import Image from "next/image";
 
 export default async function ProductDetails({params}){
@@ -17,6 +18,7 @@ export default async function ProductDetails({params}){
   const product = await response.json();
 
   return (
+    <AuthGuard>
     <div className="product-details">
       <h1>{product.title}</h1>
 
@@ -35,6 +37,7 @@ export default async function ProductDetails({params}){
       <p><strong>Description:</strong> {product.description}</p>
       <p><strong>Stock:</strong> {product.stock}</p>
     </div>
+    </AuthGuard>
   );
 
 }
